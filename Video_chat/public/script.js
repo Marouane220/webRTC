@@ -73,7 +73,12 @@ const name = prompt("what is your name ?")
 
 
 socket.on('chat-message', (data) =>{
-  appendMessage(`${data.name}: ${data.message}`)
+  if(data.name=='you'){
+    appendMessage(`you: ${data.message}`)
+  }
+  else{
+    appendMessage(`stranger: ${data.message}`)
+  }
 })
 
 messageForm.addEventListener('submit', e => {
